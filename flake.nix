@@ -1,0 +1,30 @@
+{
+  inputs.typhon.url = "github:typhon-ci/typhon";
+  inputs.nixpkgs.follows = "typhon/nixpkgs";
+  outputs =
+    { typhon, nixpkgs, ... }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+    in
+    {
+      typhonJobs.${system}.hello = pkgs.writeTextDir "hello.txt" "Hello world!";
+      typhonProject = typhon.lib.builders.mkProject {
+        actions.end = typhon.lib.compose.match [
+          {
+            jobset = "main";
+            inherit system;
+            job = "hello";
+            action = typhon.lib.github.mkPushResult {
+              owner = "pnmadelaine";
+              repo = "test-typhon-github-action";
+              branch = "hello";
+            };
+          }
+          {
+            action = typhon.lib.builders.mkDummyAction { output = "null"; };
+          }
+        ];
+      };
+    };
+}

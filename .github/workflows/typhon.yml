@@ -1,0 +1,13 @@
+on:
+  push:
+    branches: [main]
+
+jobs:
+  typhon:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: actions/checkout@v4
+      - uses: typhon-ci/typhon-github-action@dev
+        with:
+          secrets: ${{ toJSON(secrets) }}
