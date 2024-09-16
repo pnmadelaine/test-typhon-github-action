@@ -10,4 +10,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: typhon-ci/typhon-github-action@dev
         with:
-          secrets: "${{ toJSON(secrets) }}"
+          secrets: ${{ toJSON(secrets) }}
