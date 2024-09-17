@@ -15,7 +15,7 @@
             path = [ pkgs.jq ];
             script = ''
               stdin=$(cat)
-              echo "$stdin" | >&2 jq 'keys[]'
+              echo "$stdin" | >&2 jq '.secrets | keys[]'
             '';
           }
         );
