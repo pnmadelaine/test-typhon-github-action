@@ -1,6 +1,6 @@
 {
   inputs.nixpkgs.url = "github:nixos/nixpkgs";
-  inputs.typhon.url = "github:typhon-ci/typhon";
+  inputs.typhon.url = "github:typhon-ci/typhon/pnm/fix-https";
   inputs.typhon.inputs.nixpkgs.follows = "nixpkgs";
   outputs =
     { nixpkgs, typhon, ... }:
