@@ -4,6 +4,8 @@ on:
 
 jobs:
   typhon:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: DeterminateSystems/nix-installer-action@main
