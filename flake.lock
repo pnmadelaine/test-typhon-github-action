@@ -72,26 +72,22 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1716948383,
-        "narHash": "sha256-SzDKxseEcHR5KzPXLwsemyTR/kaM9whxeiJohbL04rs=",
+        "lastModified": 1726568199,
+        "narHash": "sha256-jOv7Y6oorpLnLWpdEW42tLRYeiqWX2wywzdyKWNeq1Q=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ad57eef4ef0659193044870c731987a6df5cf56b",
+        "rev": "21a0b12028d0c19673074531161aadb377a192b8",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
     },
     "root": {
       "inputs": {
-        "nixpkgs": [
-          "typhon",
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs",
         "typhon": "typhon"
       }
     },
@@ -137,7 +133,9 @@
         "crane": "crane",
         "flake-compat": "flake-compat",
         "flake-schemas": "flake-schemas",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "rust-overlay": "rust-overlay"
       },
       "locked": {

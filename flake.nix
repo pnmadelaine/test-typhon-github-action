@@ -1,8 +1,9 @@
 {
+  inputs.nixpkgs.url = "github:nixos/nixpkgs";
   inputs.typhon.url = "github:typhon-ci/typhon";
-  inputs.nixpkgs.follows = "typhon/nixpkgs";
+  inputs.typhon.inputs.nixpkgs.follows = "nixpkgs";
   outputs =
-    { typhon, nixpkgs, ... }:
+    { nixpkgs, typhon, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
